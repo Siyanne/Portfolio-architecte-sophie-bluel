@@ -32,6 +32,7 @@ function generateWorks(works) {
   for (let work of works) generateWork(work);
   //document.querySelector(".gallery").innerHTML = " ";
 }
+
 let isOpen = true;
 function generateAllCategories(works) {
   for (let work of works) generateWork(work);
@@ -49,7 +50,7 @@ btnFiltreesEverything.addEventListener("click", function () {
     generateAllCategoriesZero;
   }
 });
-
+// => je voulais faire un toggle pour ouvrir et fermer
 function createElmFiltres(classe, categorie) {
   const btnElm = createAppend(btnFiltres, "button");
   btnElm.classList.add(classe);
@@ -62,7 +63,7 @@ btnObjets.addEventListener("click", function () {
   });
   console.log(worksFiltrees);
 });
-createElmFiltres("btn-appartements", "Appartements");
+/*createElmFiltres("btn-appartements", "Appartements");
 btnAppartements.addEventListener("click", function () {
   const worksFiltrees = works.filter(function (work) {
     return work.categoryId == 2;
