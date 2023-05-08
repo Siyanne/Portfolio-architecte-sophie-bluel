@@ -215,30 +215,41 @@ li:hover {
 .gallery img {
   width: 100%;
 }
-#contact {
+#contact,
+#login {
   width: 50%;
   margin: auto;
 }
-#contact > * {
+#contact > *,
+#login h2 {
   text-align: center;
 }
-#contact h2 {
+.mdpOublié {
+  display: flex;
+  justify-content: center;
+  color: black;
+}
+#contact h2,
+#login h2 {
   margin-bottom: 20px;
 }
-#contact form {
+#contact form,
+#login form {
   text-align: left;
   margin-top: 30px;
   display: flex;
   flex-direction: column;
 }
 
-#contact input {
+#contact input,
+#login input {
   height: 50px;
   font-size: 1.2em;
   border: none;
   box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
-#contact label {
+#contact label,
+#login label {
   margin: 2em 0 1em 0;
 }
 #contact textarea {
@@ -262,58 +273,37 @@ footer nav ul {
   justify-content: flex-end;
   margin: 2em;
 }
-/************************ LOGIN PAGE*******************/
-.main--container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-.login--title {
-  display: flex;
-  justify-content: center;
-}
-.login--container {
-  display: flex;
-  justify-content: center;
-}
-.growing {
-  display: flex;
-  width: 370px;
-  height: 35px;
-}
 .projets--link,
 .login--link {
   text-decoration: none;
-  color: #000000;
+  color: black;
 }
-.login--link:hover {
+.bold-on-the-page {
   font-weight: bold;
 }
-.login--form {
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-}
-.tap-mail {
-  display: flex;
-  flex-direction: column;
-}
-.footer--container {
-  display: flex;
-  justify-content: right;
+.logout--link {
+  display: none;
 }
 
-.mention--legales {
+.editing {
+  display: none;
+  background-color: black;
+  padding: 20px;
+  justify-content: center;
+}
+.editing a {
+  color: white;
   text-decoration: none;
+  border: 1px black solid;
+  padding: 10px;
 }
-.color-grey {
-  color: #3d3d3d;
-  font-weight: bold;
+.editingFont {
+  color: white;
 }
-.bold {
-  font-weight: bold;
-}
-.password--flex {
-  display: flex;
-  flex-direction: column;
+.editing a:hover {
+  background-color: white;
+  color: black;
+  padding: 10x;
+  border: 1px black solid;
+  border-radius: 60px;
 }

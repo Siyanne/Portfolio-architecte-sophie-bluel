@@ -4,16 +4,8 @@ const works = await fetchWorks();
 const categories = await fetchCategories();
 
 const galleryElm = document.querySelector(".gallery");
-const btnFiltreesEverything = document.querySelector(".btn-trier-tous");
 const btnFiltres = document.querySelector(".filtres");
-galleryElm.classList.add(".gallery-show");
-const showWorks = document.querySelector(".gallery-show");
-galleryElm.classList.add(".gallery-zero");
 
-const btnObjets = document.querySelector(".btn-objets");
-const btnAppartements = document.querySelector(".btn-appartements");
-const btnHoAndResto = document.querySelector(".btn-hotelsRestaurants");
-const galleryZero = document.querySelector(".galleryZero");
 function createAppend(elm, tag) {
   return elm.appendChild(document.createElement(tag));
 }
@@ -29,52 +21,36 @@ function generateWork(work) {
 }
 
 function generateWorks(works) {
+  galleryElm.innerHTML = "";
   for (let work of works) generateWork(work);
-  //document.querySelector(".gallery").innerHTML = " ";
 }
 
-let isOpen = true;
-function generateAllCategories(works) {
-  for (let work of works) generateWork(work);
-  isOpen = true;
-}
-
-function generateAllCategoriesZero() {
-  document.querySelector(".gallery-zero").innerHTML = " ";
-  isOpen = false;
-}
-btnFiltreesEverything.addEventListener("click", function () {
-  if (isOpen == true) {
-    generateAllCategories(works);
-  } else {
-    generateAllCategoriesZero;
-  }
-});
-// => je voulais faire un toggle pour ouvrir et fermer
-function createElmFiltres(classe, categorie) {
-  const btnElm = createAppend(btnFiltres, "button");
-  btnElm.classList.add(classe);
-  btnElm.innerText = categorie;
-}
-
-btnObjets.addEventListener("click", function () {
+function generateWorksFiltrees(id) {
   const worksFiltrees = works.filter(function (work) {
-    return work.categoryId == 1;
+    if (id == 0) {
+      return true;
+    }
+    return work.categoryId == id;
   });
-  console.log(worksFiltrees);
-});
-/*createElmFiltres("btn-appartements", "Appartements");
-btnAppartements.addEventListener("click", function () {
-  const worksFiltrees = works.filter(function (work) {
-    return work.categoryId == 2;
-  });
-  console.log(worksFiltrees);
-});
-/*createElmFiltres("btn-hotelsRestaurants", "Hôtels & restaurants");
-btnHoAndResto.addEventListener("click", function () {
-  const worksFiltrees = works.filter(function (work) {
-    return work.categoryId == 3;
-  });
-});*/
+  generateWorks(worksFiltrees);
+}
 
+function generateFilterButtons(categories) {
+  generateFilterButton({ id: 0, name: "Tous" });
+  for (let categorie of categories) generateFilterButton(categorie);
+}
+
+function generateFilterButton(categorie) {
+  const clone = document
+    .querySelector("#buttonCategories")
+    .content.cloneNode(true);
+  clone.querySelector(".btnFiltre").innerText = categorie.name;
+  clone
+    .querySelector(".btnFiltre")
+    .addEventListener("click", () => generateWorksFiltrees(categorie.id));
+  btnFiltres.appendChild(clone);
+  console.log(categorie);
+}
 generateWorks(works);
+generateFilterButtons(categories);
+export { createAppend };
