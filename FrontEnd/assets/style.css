@@ -285,17 +285,8 @@ footer nav ul {
   display: none;
 }
 
-.editing {
-  display: none;
-  background-color: black;
-  padding: 20px;
-  justify-content: center;
-}
 .editing a {
   color: white;
-  text-decoration: none;
-  border: 1px black solid;
-  padding: 10px;
 }
 .editingFont {
   color: white;
@@ -306,4 +297,14 @@ footer nav ul {
   padding: 10x;
   border: 1px black solid;
   border-radius: 60px;
+}
+.displayEdit {
+  display: flex;
+  text-decoration: none;
+  border: 1px black solid;
+  padding: 10px;
+}
+.msgErreur {
+  color: red;
+  padding-top: 20px;
 }
