@@ -283,25 +283,30 @@ footer nav ul {
 }
 .logout--link {
   display: none;
+  text-decoration: none;
+  color: black;
 }
 
-.editing a {
-  color: white;
-}
 .editingFont {
   color: white;
 }
-.editing a:hover {
+.displayEdit a:hover {
   background-color: white;
   color: black;
   padding: 10x;
-  border: 1px black solid;
+
   border-radius: 60px;
 }
 .displayEdit {
   display: flex;
+  justify-content: center;
+
+  padding: 15px;
+  background-color: black;
+}
+.displayEdit a {
   text-decoration: none;
-  border: 1px black solid;
+  color: white;
   padding: 10px;
 }
 .msgErreur {

@@ -45,4 +45,4 @@ export async function apiFetch(method, url, body, options = {}) {
 
 export const fetchWorks = () => apiFetch("GET", `/api/works`);
 export const fetchCategories = () => apiFetch("GET", `/api/categories`);
-//export const fetchLogin = () => apiFetch("POST", "/api/users/login");
+export const fetchLogin = (body) => apiFetch("POST", "/api/users/login", body);

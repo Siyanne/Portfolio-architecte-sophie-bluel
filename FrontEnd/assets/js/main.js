@@ -51,6 +51,17 @@ function generateFilterButton(categorie) {
   btnFiltres.appendChild(clone);
   console.log(categorie);
 }
+
+function navEdition() {
+  const editingMenu = document.querySelector(".editing");
+  editingMenu.classList.toggle("displayEdit"); // ou .add mais ça ne marche pas
+}
+function logoutBtn() {
+  loginLink.style.display = "none";
+  logoutLink.style.display = "flex";
+}
+navEdition();
+logoutBtn();
 generateWorks(works);
 generateFilterButtons(categories);
 export { createAppend };
