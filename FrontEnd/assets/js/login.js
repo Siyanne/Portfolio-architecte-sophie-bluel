@@ -41,13 +41,4 @@ function loginError() {
   errorElm.innerText = "Erreur dans l’identifiant ou le mot de passe";
   msgError.appendChild(errorElm);
 }
-/*
-
-/*function logout() {
-  const logoutLink = document.querySelector(".logout--link");
-  logoutLink.addEventListener("click", function () {
-    window.localStorage.clear();
-    window.location.reload(true);
-    window.location.replace("index.html");
-  });
-}*/
+export { redirectToHome };

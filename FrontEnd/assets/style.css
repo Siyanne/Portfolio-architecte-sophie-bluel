@@ -2,7 +2,9 @@
    v2.0 | 20110126
    License: none (public domain)
 */
-
+* {
+  box-sizing: border-box;
+}
 html,
 body,
 div,
@@ -267,7 +269,28 @@ input[type="submit"] {
   text-align: center;
   border-radius: 60px;
 }
-
+#portfolio {
+  text-align: center;
+}
+.btnFiltre {
+  font-family: "Syne";
+  font-weight: 700;
+  color: #1d6154;
+  background-color: white;
+  margin: 2em 5px;
+  border: 1px solid #1d6154;
+  padding: 9px 30px;
+  text-align: center;
+  border-radius: 60px;
+}
+.btnFiltre:hover {
+  background-color: #1d6154;
+  color: white;
+}
+.btnFiltre:focus {
+  color: white;
+  background-color: #1d6154;
+}
 footer nav ul {
   display: flex;
   justify-content: flex-end;
@@ -312,4 +335,23 @@ footer nav ul {
 .msgErreur {
   color: red;
   padding-top: 20px;
+}
+.modal {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.08);
+}
+.modal-wrapper {
+  overflow: auto;
+  width: 600px;
+  max-width: calc(100vw - 20px);
+  max-height: calc(100vh - 20px);
+  padding: 20px;
+  background-color: #fff;
 }

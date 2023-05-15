@@ -1,4 +1,5 @@
 import { fetchCategories, fetchWorks } from "./api.js";
+import { redirectToHome } from "./login.js";
 
 const works = await fetchWorks();
 const categories = await fetchCategories();
@@ -52,16 +53,27 @@ function generateFilterButton(categorie) {
   console.log(categorie);
 }
 
-function navEdition() {
+if (redirectToHome) {
+  const bodyElm = document.getElementsByTagName("body");
+  bodyElm.classList.add("admin");
+}
+const admin = document.querySelector(".admin");
+
+if (admin) {
+  navAndEdition();
+  logoutBtn();
+}
+function navAndEdition() {
   const editingMenu = document.querySelector(".editing");
-  editingMenu.classList.toggle("displayEdit"); // ou .add mais ça ne marche pas
+  editingMenu.style.display = null; // ou .add mais ça ne marche pas
 }
 function logoutBtn() {
   loginLink.style.display = "none";
-  logoutLink.style.display = "flex";
+  logoutLink.style.display = "null";
 }
-navEdition();
-logoutBtn();
+
+navAndEdition();
+//logoutBtn();
 generateWorks(works);
 generateFilterButtons(categories);
 export { createAppend };
