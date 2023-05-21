@@ -1,9 +1,10 @@
-import { fetchCategories, fetchWorks } from "./api.js";
+import { fetchCategories, fetchWorks, fetchDeleteWorks } from "./api.js";
 import { check, setToken } from "./auth.js";
 
 const works = await fetchWorks();
 const categories = await fetchCategories();
-
+const deleteWorks = await fetchDeleteWorks();
+console.log(deleteWorks);
 const galleryElm = document.querySelector(".gallery");
 const btnFiltres = document.querySelector(".filtres");
 
@@ -89,6 +90,7 @@ function generateProject(work) {
 
   const figcaptionElm = createAppend(figureElm, "figcaption");
   figcaptionElm.innerText = "éditer";
+  return work.id;
 }
 
 function generateGalleries(works) {
@@ -97,7 +99,7 @@ function generateGalleries(works) {
 }
 
 const trashBtn = document.querySelector("trashBtn");
-trashBtn.addEventListener("click", function (works) {
+trashBtn.addEventListener("click", () => {
   const projet = works.id;
   console.log(projet);
 });
