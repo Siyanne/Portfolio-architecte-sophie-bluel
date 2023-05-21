@@ -1,4 +1,4 @@
-function check() {}
+import { check } from "./auth.js";
 
 const link = "http://localhost:5678";
 

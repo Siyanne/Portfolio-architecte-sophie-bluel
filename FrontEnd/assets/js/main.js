@@ -1,11 +1,13 @@
 import { fetchCategories, fetchWorks } from "./api.js";
-import { redirectToHome } from "./login.js";
+import { check, setToken } from "./auth.js";
 
 const works = await fetchWorks();
 const categories = await fetchCategories();
 
 const galleryElm = document.querySelector(".gallery");
 const btnFiltres = document.querySelector(".filtres");
+
+const galleries = document.querySelector(".galleries-photos");
 
 function createAppend(elm, tag) {
   return elm.appendChild(document.createElement(tag));
@@ -52,28 +54,54 @@ function generateFilterButton(categorie) {
   btnFiltres.appendChild(clone);
   console.log(categorie);
 }
+const logged = check();
+console.log(logged);
+if (logged) {
+  document.querySelector("body").classList.add("isAdmin");
+  console.log("connecté en tant que admin");
+} else {
+  document.querySelector("body").classList.add("isGuest");
+  console.log("connecté en tant que guest");
+}
+document.querySelector(".logout--link").addEventListener("click", function () {
+  setToken();
+  if (setToken()) {
+    document.querySelector("body").classList.remove("isAdmin");
+    console.log("vous n'êtes plus connecté");
+  } else {
+    document.querySelector("body").classList.add("isGuest");
+    document.querySelector("body").classList.remove("isAdmin");
+    console.log("vous n'êtes plus connecté en tant que guest");
+  }
+  localStorage.removeItem("token");
+});
 
-if (redirectToHome) {
-  const bodyElm = document.getElementsByTagName("body");
-  bodyElm.classList.add("admin");
-}
-const admin = document.querySelector(".admin");
+function generateProject(work) {
+  const figureElm = createAppend(galleries, "figure");
+  const lienIcon = createAppend(figureElm, "button");
+  lienIcon.classList.add("trashBtn");
+  lienIcon.setAttribute("type", "button");
+  lienIcon.innerText = '<i class="fa-regular fa-trash"></i>';
+  /*const trashIcon = createAppend(lienIcon, "i");
+  trashIcon.classList.add("fa-regular", "fa-trash", "trashIcon");*/
+  const imageElm = createAppend(figureElm, "img");
+  imageElm.src = work.imageUrl;
 
-if (admin) {
-  navAndEdition();
-  logoutBtn();
-}
-function navAndEdition() {
-  const editingMenu = document.querySelector(".editing");
-  editingMenu.style.display = null; // ou .add mais ça ne marche pas
-}
-function logoutBtn() {
-  loginLink.style.display = "none";
-  logoutLink.style.display = "null";
+  const figcaptionElm = createAppend(figureElm, "figcaption");
+  figcaptionElm.innerText = "éditer";
 }
 
-navAndEdition();
-//logoutBtn();
+function generateGalleries(works) {
+  console.log("why?");
+  for (let work of works) generateProject(work);
+}
+
+const trashBtn = document.querySelector("trashBtn");
+trashBtn.addEventListener("click", function (works) {
+  const projet = works.id;
+  console.log(projet);
+});
 generateWorks(works);
 generateFilterButtons(categories);
+generateGalleries(works);
 export { createAppend };

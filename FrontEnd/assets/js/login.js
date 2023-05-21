@@ -1,13 +1,11 @@
 import { fetchLogin } from "./api.js";
+import { setToken } from "./auth.js";
 
 console.log("helllo");
 
 //import { createAppend } from "./main.js";
 const emailInput = document.querySelector(".email");
 const pswInput = document.querySelector(".password");
-const logInBtn = document.querySelector(".connexion");
-const logoutLink = document.querySelector(".logout--link");
-const loginLink = document.querySelector(".login--link");
 const msgError = document.querySelector(".errorMsg");
 const loginForm = document.querySelector(".loginForm");
 loginForm.addEventListener("submit", loginInfo);
@@ -20,20 +18,13 @@ async function loginInfo(ev) {
   console.log(result.token);
 
   if (!result.token) return loginError();
-  window.localStorage.setItem("token", result.token);
+  setToken(result.token);
   redirectToHome();
-  // navEdition();
 }
 
 function redirectToHome() {
   document.location.replace("index.html");
 }
-
-/*
-function logoutBtn() {
-  loginLink.style.display === "none";
-  logoutLink.style.display === "flex";
-}*/
 
 function loginError() {
   const errorElm = document.createElement("p");
