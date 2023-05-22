@@ -23,11 +23,43 @@
     <nav>
       <button type="button" id="open-modal">Mode édition</button>
       <div id="modal">
+        <button data-modal-close><i class="fa-solid fa-xmark"></i></button>
         <form method="dialog">
-          <button data-modal-close><i class="fa-solid fa-xmark"></i></button>
           <label>Galerie photo</label>
-          <div class="galleries-photos"></div>
-          <button type="submit" class="add-photo">Ajouter une photo</button>
+          <div class="projets-modal"></div>
+          <template id="galleries-modal">
+            <figure class="modal-projet">
+              <button class="trashBtn" type="submit">
+                <i class="fa-regular fa-trash"></i>
+              </button>
+              <img class="img-projet" src="#" />
+              <figcaption class="titreProjet"></figcaption>
+            </figure>
+          </template>
+          <button type="button" id="open-modal-ajout" class="add-photo">
+            Ajouter une photo
+          </button>
+          <div id="ajout-modal">
+            <button class="arrowLeft">
+              <i class="fa-solid fa-arrow-left-long"></i>
+            </button>
+            <button data-modal-close><i class="fa-solid fa-xmark"></i></button>
+            <form method="dialog">
+              <label>
+                <h3>Ajout Photo</h3>
+              </label>
+              <input type="image" />
+              <label>Titre</label>
+              <input type="text" />
+              <label>Catégories</label>
+              <select name="categoriesWork" id="workCategories">
+                #
+              </select>
+              <div>
+                <button type="submit">Valider</button>
+              </div>
+            </form>
+          </div>
           <button type="submit" class="remove-photo">
             Supprimer une photo
           </button>
@@ -56,13 +88,13 @@
         <figure>
           <img src="./assets/images/sophie-bluel.png" alt="" />
           <a href="#" class="modifier modifier-profil hide-guest"
-            ><i class="fa-solid fa-pen-to-square modifier-font"></i>modifer</a
+            ><i class="fa-solid fa-pen-to-square modifier-text"></i>modifier</a
           >
         </figure>
 
         <article>
           <a href="#" class="modifier modifier-text hide-guest"
-            ><i class="fa-solid fa-pen-to-square modifier-font"></i>modifier</a
+            ><i class="fa-solid fa-pen-to-square modifier-text"></i>modifier</a
           >
           <h2>Designer d'espace</h2>
           <p>
@@ -86,7 +118,7 @@
         <div class="projets-modifier">
           <h2>Mes Projets</h2>
           <a href="#" class="modifier modifier-galleries hide-guest"
-            ><i class="fa-solid fa-pen-to-square modifier-font"></i>modifier</a
+            ><i class="fa-solid fa-pen-to-square modifier-img"></i>modifier</a
           >
         </div>
         <div class="filtres hide-admin"></div>

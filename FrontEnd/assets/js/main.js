@@ -7,8 +7,7 @@ const deleteWorks = await fetchDeleteWorks();
 console.log(deleteWorks);
 const galleryElm = document.querySelector(".gallery");
 const btnFiltres = document.querySelector(".filtres");
-
-const galleries = document.querySelector(".galleries-photos");
+const projetsDiv = document.querySelector(".projets-modal");
 
 function createAppend(elm, tag) {
   return elm.appendChild(document.createElement(tag));
@@ -74,36 +73,67 @@ document.querySelector(".logout--link").addEventListener("click", function () {
     document.querySelector("body").classList.remove("isAdmin");
     console.log("vous n'êtes plus connecté en tant que guest");
   }
-  localStorage.removeItem("token");
+  localStorage.clear();
 });
-
-function generateProject(work) {
-  const figureElm = createAppend(galleries, "figure");
+/*function generateModal(work){
+const figureElm = createAppend(galleries, "figure");
   const lienIcon = createAppend(figureElm, "button");
-  lienIcon.classList.add("trashBtn");
+  const trashClass = lienIcon.classList.add("trashBtn");
   lienIcon.setAttribute("type", "button");
   lienIcon.innerText = '<i class="fa-regular fa-trash"></i>';
-  /*const trashIcon = createAppend(lienIcon, "i");
-  trashIcon.classList.add("fa-regular", "fa-trash", "trashIcon");*/
+  const trashIcon = createAppend(lienIcon, "i");
+  trashIcon.classList.add("fa-regular", "fa-trash", "trashIcon");
   const imageElm = createAppend(figureElm, "img");
   imageElm.src = work.imageUrl;
 
   const figcaptionElm = createAppend(figureElm, "figcaption");
+  figcaptionElm.classList.add("projet");
   figcaptionElm.innerText = "éditer";
-  return work.id;
+  console.log(work.id, trashClass);
+  return work.id, trashClass;
 }
-
-function generateGalleries(works) {
+function generateModals(works) {
   console.log("why?");
-  for (let work of works) generateProject(work);
+  for (let work of works) generateModal(work);
+}*/
+function generateModal(works) {
+  const clone = document
+    .querySelector("#galleries-modal")
+    .content.cloneNode(true);
+  clone.querySelector(".modal-projet").innerText = "editer";
+  //clone.querySelector(".imgProjet").src = work.imageUrl;
+  // clone.querySelector(".trashBtn").innerText = '<i class="fa-solid fa-xmark">';
+  generateWorks(works);
+  projetsDiv.appendChild(clone);
+  console.log(works);
 }
 
-const trashBtn = document.querySelector("trashBtn");
+const trashBtn = document.querySelector(".trashBtn");
+const figureElement = document.querySelector(".modal-projet");
+
+function removeModalWork(work) {
+  if (deleteWorks.id && deleteWorks.status === 200) {
+    const parentElement = figcaptionElement.parentNode;
+    parentElement.removeChild(figcaptionElement);
+  }
+}
 trashBtn.addEventListener("click", () => {
-  const projet = works.id;
-  console.log(projet);
+  removeModalWork;
+  console.log(deleteWorks.status);
 });
+const newElm = document.createElement("figure");
+newElm.innerText = "test";
+newElm.setAttribute("class", "new-projet");
+projetsDiv.appendChild(newElm);
+
+const selectCategories = document.querySelector("#workCategories");
+selectCategories.addEventListener("click", (categories) => {
+  for (let categorie of categories) {
+    selectCategories.innerText = categorie.name;
+  }
+});
+generateModal;
 generateWorks(works);
 generateFilterButtons(categories);
-generateGalleries(works);
+generateModal(works);
 export { createAppend };
