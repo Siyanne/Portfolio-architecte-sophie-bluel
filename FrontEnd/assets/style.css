@@ -377,3 +377,22 @@ footer nav ul {
   position: absolute;
   margin-left: 74px;
 }
+.modal {
+  background: #0007;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.modal__page {
+  background: white;
+  padding: 10px;
+  border: 1px solid black;
+}
+.hide {
+  display: none;
+}
