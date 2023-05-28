@@ -46,4 +46,26 @@ selectCategories.addEventListener("click", (categories) => {
     selectCategories.innerText = categorie.name;
   }
 });
-generateModalWork(works);
+//generateModalWork(works);
+
+const img_input = document.querySelector(`#image-input`);
+let uploaded_img = ``;
+
+img_input.addEventListener(`change`, function () {
+  const reader = new FileReader();
+
+  reader.addEventListener(`load`, () => {
+    uploaded_img = reader.result;
+    document.querySelector(
+      `#display-image`
+    ).style.backgroundImage = `url(${uploaded_img})`;
+
+    if (img_input.value) {
+      document.querySelector(`.disappear`).style.display = `none`;
+      document.querySelector(`.picture`).style.display = `none`;
+      document.querySelector(`.conseil`).style.display = `none`;
+    }
+  });
+
+  reader.readAsDataURL(this.files[0]);
+});

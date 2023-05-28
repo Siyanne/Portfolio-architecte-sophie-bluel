@@ -119,9 +119,9 @@ q {
   quotes: none;
 }
 blockquote:before,
-blockquote:after,
+blockquote::active,
 q:before,
-q:after {
+q::active {
   content: "";
   content: none;
 }
@@ -393,9 +393,72 @@ footer nav ul {
   padding: 10px;
   border: 1px solid black;
 }
+.modal-previous-x {
+  display: flex;
+  justify-content: space-bd;
+
+  width: 100%;
+  justify-content: space-between;
+}
 /*.hide {
   display: none;
 }*/
-#modal2 {
+/*#modal2 {
   display: none;
+}*/
+.ajout-project-modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  height: 80vh;
+  flex-direction: column;
+}
+#display-image {
+  width: 100%;
+  height: 211px;
+  border: 1px xolid black;
+  background-position: center;
+  background-size: cover;
+  background-color: blue;
+}
+.display-column {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.validerUpload {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+}
+
+.titrePhoto,
+#workCategories {
+  width: 420px;
+  height: 51px;
+}
+#image-input {
+  display: none;
+}
+.picture {
+  position: absolute;
+  left: 710px;
+  top: 220px;
+  font-size: 4em;
+}
+.disappear {
+  position: absolute;
+  left: 690px;
+  top: 290px;
+}
+.conseil {
+  position: absolute;
+  left: 700px;
+  top: 310px;
+  font-size: 10px;
+}
+.titreAjoutPhoto {
+  text-align: center;
+  padding: 20px;
 }

@@ -42,6 +42,7 @@
               </figure>
             </template>
             <button type="button" id="add-pic-modal">Ajouter une photo</button>
+
             <button type="submit" class="remove-photo">
               Supprimer une photo
             </button>
@@ -51,24 +52,44 @@
 
       <div class="modal hide" id="modal2">
         <div class="ajout-project-modal modal__page hide">
-          <button id="previous-page">
-            <i class="fa-solid fa-arrow-left-long"></i>
-          </button>
-          <button id="modal-close-x2">
-            <i class="fa-solid fa-xmark"></i>
-          </button>
-          <form method="dialog">
-            <label>
-              <h3>Ajout Photo</h3>
-            </label>
-            <input type="image" />
-            <label>Titre</label>
-            <input type="text" />
-            <label>Catégories</label>
-            <select name="categoriesWork" id="workCategories">
-              #
-            </select>
-            <div>
+          <div class="modal-previous-x">
+            <button id="previous-page">
+              <i class="fa-solid fa-arrow-left-long"></i>
+            </button>
+            <button id="modal-close-x2">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+          <form method="dialog" id="saved-form">
+            <div class="header">
+              <label>
+                <h3 class="titreAjoutPhoto">Ajout Photo</h3>
+              </label>
+              <div class="server-message"></div>
+            </div>
+            <div class="input-div">
+              <input
+                type="file"
+                src="assets/js/modal.js"
+                id="image-input"
+                accept="image/png, image/jpg"
+              /><i class="fa-regular fa-image picture"></i>
+              <label for="image-input" class="disappear"
+                ><i class="fa-solid fa-plus"></i>Ajouter photo</label
+              >
+              <p class="conseil">jpg, png : 4mo max</p>
+            </div>
+
+            <div id="display-image"></div>
+            <div class="display-column">
+              <label>Titre</label>
+              <input type="text" class="titrePhoto" />
+              <label>Catégories</label>
+              <select name="categoriesWork" id="workCategories">
+                #
+              </select>
+            </div>
+            <div class="validerUpload">
               <button type="submit">Valider</button>
             </div>
           </form>
