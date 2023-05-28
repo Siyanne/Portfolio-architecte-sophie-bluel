@@ -31,8 +31,10 @@ function button_close_modal(button, modal) {
     page.addEventListener("click", (ev) => ev.stopPropagation());
   }
 }
-button_modal("#edition-modal", "#modal1", ".ajout-project-modal");
-button_modal("#previous-page", "#modal1", ".delete-project-modal");
+button_modal("#edition-modal", "#modal1", ".delete-project-modal");
 button_modal("#add-pic-modal", "#modal2", ".ajout-project-modal");
+button_modal("#previous-page", "#modal1", ".delete-project-modal");
 button_close_modal("#modal1", "#modal1");
 button_close_modal("#modal2", "#modal2");
+button_close_modal("#modal-close-x1", "#modal-close-x1");
+button_close_modal("#modal-close-x1", "#modal-close-x1");

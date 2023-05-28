@@ -6,7 +6,6 @@ const categories = await fetchCategories();
 
 const galleryElm = document.querySelector(".gallery");
 const btnFiltres = document.querySelector(".filtres");
-const projetsDiv = document.querySelector(".projets-modal");
 
 function createAppend(elm, tag) {
   return elm.appendChild(document.createElement(tag));
@@ -75,49 +74,7 @@ document.querySelector(".logout--link").addEventListener("click", function () {
   localStorage.clear();
 });
 
-function generateModalWork(work) {
-  const clone = document
-    .querySelector("#galleries-modal")
-    .content.cloneNode(true);
-  clone.querySelector(".modal-projet").innerText = "editer";
-  clone.querySelector(".imgProjet").src = work.imageUrl;
-  clone.querySelector(".trashBtn").addEventListener("click", async () => {
-    const deleteWorks = await fetchDeleteWorks(work.id);
-    console.log(deleteWorks);
-    removeModalWork();
-    console.log(deleteWorks.status);
-  });
-  generateWorks(work);
-  projetsDiv.appendChild(clone);
-  console.log(work);
-}
-
-const trashBtn = document.querySelector(".trashBtn");
-const figureElement = document.querySelector(".modal-projet");
-
-function removeModalWork() {
-  if (deleteWorks.id && deleteWorks.status === 200) {
-    const parentElement = figureElement.parentNode;
-    parentElement.removeChild(figureElement);
-  }
-}
-trashBtn.addEventListener("click", () => {
-  removeModalWork;
-  console.log(deleteWorks.status);
-});
-const newElm = document.createElement("figure");
-newElm.innerText = "test";
-newElm.setAttribute("class", "new-projet");
-projetsDiv.appendChild(newElm);
-
-const selectCategories = document.querySelector("#workCategories");
-selectCategories.addEventListener("click", (categories) => {
-  for (let categorie of categories) {
-    selectCategories.innerText = categorie.name;
-  }
-});
-generateModalWork(works);
 generateWorks(works);
 generateFilterButtons(categories);
-generateModal(works);
+//generateModal(works);
 export { createAppend };

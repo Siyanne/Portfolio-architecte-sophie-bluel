@@ -13,7 +13,8 @@
     <meta name="description" content="" />
     <link rel="stylesheet" href="./assets/style.css" />
     <script src="assets/js/main.js" type="module" defer></script>
-    <script src="assets/js/app.js"></script>
+    <script src="assets/js/app.js" type="module" defer></script>
+    <script src="assets/js/modal.js" type="module" defer></script>
     <script
       src="https://kit.fontawesome.com/57d78a751e.js"
       crossorigin="anonymous"
@@ -24,9 +25,12 @@
       <button type="button" id="edition-modal">Mode édition</button>
       <div class="modal hide" id="modal1">
         <div class="delete-project-modal modal__page hide">
-          <button data-modal-close><i class="fa-solid fa-xmark"></i></button>
+          <button id="modal-close-x1">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
           <form method="dialog">
-            <label>Galerie photo</label>
+            <!-- ajout du for attribut -->
+            <label for="galleries-modal">Galerie photo</label>
             <div class="projets-modal"></div>
             <template id="galleries-modal">
               <figure class="modal-projet">
@@ -34,7 +38,7 @@
                   <i class="fa-regular fa-trash"></i>
                 </button>
                 <img class="img-projet" src="#" />
-                <figcaption class="titreProjet"></figcaption>
+                <figcaption class="titreProjet">éditer</figcaption>
               </figure>
             </template>
             <button type="button" id="add-pic-modal">Ajouter une photo</button>
@@ -50,7 +54,9 @@
           <button id="previous-page">
             <i class="fa-solid fa-arrow-left-long"></i>
           </button>
-          <button data-modal-close><i class="fa-solid fa-xmark"></i></button>
+          <button id="modal-close-x2">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
           <form method="dialog">
             <label>
               <h3>Ajout Photo</h3>

@@ -393,6 +393,9 @@ footer nav ul {
   padding: 10px;
   border: 1px solid black;
 }
-.hide {
+/*.hide {
+  display: none;
+}*/
+#modal2 {
   display: none;
 }
