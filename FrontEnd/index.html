@@ -25,9 +25,11 @@
       <button type="button" id="edition-modal">Mode édition</button>
       <div class="modal hide" id="modal1">
         <div class="delete-project-modal modal__page hide">
-          <button id="modal-close-x1">
-            <i class="fa-solid fa-xmark"></i>
-          </button>
+          <div class="fermer">
+            <button id="modal-close-x1">
+              <i class="fa-solid fa-xmark fermerX"></i>
+            </button>
+          </div>
           <form method="dialog">
             <!-- ajout du for attribut -->
             <label for="galleries-modal">Galerie photo</label>
@@ -56,9 +58,11 @@
             <button id="previous-page">
               <i class="fa-solid fa-arrow-left-long"></i>
             </button>
-            <button id="modal-close-x2">
-              <i class="fa-solid fa-xmark"></i>
-            </button>
+            <div class="fermer">
+              <button id="modal-close-x2">
+                <i class="fa-solid fa-xmark fermerX"></i>
+              </button>
+            </div>
           </div>
           <form method="dialog" id="saved-form">
             <div class="header">
@@ -75,7 +79,7 @@
                 accept="image/png, image/jpg"
               /><i class="fa-regular fa-image picture"></i>
               <label for="image-input" class="disappear"
-                ><i class="fa-solid fa-plus"></i>Ajouter photo</label
+                ><i class="fa-solid fa-plus addSymbole"></i>Ajouter photo</label
               >
               <p class="conseil">jpg, png : 4mo max</p>
             </div>
@@ -90,7 +94,7 @@
               </select>
             </div>
             <div class="validerUpload">
-              <button type="submit">Valider</button>
+              <button type="submit" id="valider">Valider</button>
             </div>
           </form>
         </div>

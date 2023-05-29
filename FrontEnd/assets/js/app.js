@@ -36,5 +36,5 @@ button_modal("#add-pic-modal", "#modal2", ".ajout-project-modal");
 button_modal("#previous-page", "#modal1", ".delete-project-modal");
 button_close_modal("#modal1", "#modal1");
 button_close_modal("#modal2", "#modal2");
-button_close_modal("#modal-close-x1", "#modal-close-x1");
-button_close_modal("#modal-close-x1", "#modal-close-x1");
+button_close_modal("#modal-close-x1", "#modal1");
+button_close_modal("#modal-close-x2", "#modal2");

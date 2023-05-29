@@ -1,6 +1,8 @@
 import { fetchDeleteWorks } from "./api.js";
+import { postNewWork } from "./api.js";
 
 const projetsDiv = document.querySelector(".projets-modal");
+
 function generateModalWork(work) {
   const clone = document
     .querySelector("#galleries-modal")
@@ -8,7 +10,6 @@ function generateModalWork(work) {
   clone.querySelector(".titreProjet").innerText = "editer";
   clone.querySelector(".img-projet").src = work.imageUrl;
 
-  // ajout des parenthèses autour de la fonction fléchée
   clone.querySelector(".trashBtn").addEventListener("click", async () => {
     const deleteWorks = await fetchDeleteWorks(work.id);
     console.log(deleteWorks);
@@ -32,9 +33,9 @@ function removeModalWork() {
   }
 }
 /*trashBtn.addEventListener("click", () => {
-    removeModalWork;
-    console.log(deleteWorks.status);
-  });*/
+  removeModalWork;
+  console.log(deleteWorks.status);
+});*/
 const newElm = document.createElement("figure");
 newElm.innerText = "test";
 newElm.setAttribute("class", "new-projet");
@@ -46,7 +47,6 @@ selectCategories.addEventListener("click", (categories) => {
     selectCategories.innerText = categorie.name;
   }
 });
-//generateModalWork(works);
 
 const img_input = document.querySelector(`#image-input`);
 let uploaded_img = ``;
@@ -69,3 +69,13 @@ img_input.addEventListener(`change`, function () {
 
   reader.readAsDataURL(this.files[0]);
 });
+
+async function postWorkTitlte(ev) {
+  ev.preventDefault();
+  const body = Object.fromEntries(new FormData(ev.target));
+  const result = await postNewWork(response);
+  const work = await result.json();
+  const parentElm = event.target.parentElement;
+}
+postNewWork;
+generateModalWork;
