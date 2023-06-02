@@ -1,7 +1,6 @@
 import { fetchCategories, fetchWorks, fetchDeleteWorks } from "./api.js";
 import { check, setToken } from "./auth.js";
-
-const works = await fetchWorks();
+import { works } from "./works.js";
 const categories = await fetchCategories();
 
 const galleryElm = document.querySelector(".gallery");

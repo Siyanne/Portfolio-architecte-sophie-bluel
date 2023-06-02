@@ -46,6 +46,6 @@ export async function apiFetch(method, url, body, options = {}) {
 export const fetchWorks = () => apiFetch("GET", `/api/works`);
 export const fetchCategories = () => apiFetch("GET", `/api/categories`);
 export const fetchLogin = (body) => apiFetch("POST", "/api/users/login", body);
-export const fetchDeleteWorks = () => apiFetch("DELETE", "/api/works/{id}");
+export const fetchDeleteWorks = (id) => apiFetch("DELETE", `/api/works/${id}`);
 export const postNewWork = (response) =>
   apiFetch("POST", "/api/works", response);

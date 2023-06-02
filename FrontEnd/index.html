@@ -14,14 +14,15 @@
     <link rel="stylesheet" href="./assets/style.css" />
     <script src="assets/js/main.js" type="module" defer></script>
     <script src="assets/js/app.js" type="module" defer></script>
-    <script src="assets/js/modal.js" type="module" defer></script>
+    <script src="assets/js/modalSupprimer.js" type="module" defer></script>
+    <script src="assets/js/modalAjouter.js" type="module" defer></script>
     <script
       src="https://kit.fontawesome.com/57d78a751e.js"
       crossorigin="anonymous"
     ></script>
   </head>
   <body>
-    <nav>
+    <nav class="modalMenu hide-guest">
       <button type="button" id="edition-modal">Mode édition</button>
       <div class="modal hide" id="modal1">
         <div class="delete-project-modal modal__page hide">
@@ -30,29 +31,32 @@
               <i class="fa-solid fa-xmark fermerX"></i>
             </button>
           </div>
-          <form method="dialog">
+          <form method="dialog" class="formDelete">
             <!-- ajout du for attribut -->
-            <label for="galleries-modal">Galerie photo</label>
+            <label for="galleries-modal" class="titleModal"
+              >Galerie photo</label
+            >
             <div class="projets-modal"></div>
             <template id="galleries-modal">
               <figure class="modal-projet">
                 <button class="trashBtn" type="submit">
-                  <i class="fa-regular fa-trash"></i>
+                  <i class="fa-solid fa-trash trashCon"></i>
                 </button>
                 <img class="img-projet" src="#" />
                 <figcaption class="titreProjet">éditer</figcaption>
               </figure>
             </template>
-            <button type="button" id="add-pic-modal">Ajouter une photo</button>
+            <div class="btn-sup-aj">
+              <button type="button" id="add-pic-modal">
+                Ajouter une photo
+              </button>
 
-            <button type="submit" class="remove-photo">
-              Supprimer une photo
-            </button>
+              <button type="submit" id="remove-photo">
+                Supprimer une photo
+              </button>
+            </div>
           </form>
         </div>
-      </div>
-
-      <div class="modal hide" id="modal2">
         <div class="ajout-project-modal modal__page hide">
           <div class="modal-previous-x">
             <button id="previous-page">
@@ -69,19 +73,27 @@
               <label>
                 <h3 class="titreAjoutPhoto">Ajout Photo</h3>
               </label>
-              <div class="server-message"></div>
             </div>
-            <div class="input-div">
+            <div class="input-div drop-zone">
               <input
                 type="file"
-                src="assets/js/modal.js"
+                name="myFile"
+                src="assets/js/modalSupprimer.js"
                 id="image-input"
+                class="drop-zone-input"
                 accept="image/png, image/jpg"
-              /><i class="fa-regular fa-image picture"></i>
+              />
+              <label for="image-input">
+                <i class="fa-regular fa-image picture"></i
+              ></label>
+
               <label for="image-input" class="disappear"
-                ><i class="fa-solid fa-plus addSymbole"></i>Ajouter photo</label
+                ><i for="image-input" class="fa-solid fa-plus addSymbole"></i
+                >Ajouter photo</label
               >
-              <p class="conseil">jpg, png : 4mo max</p>
+              <label for="image-input" class="conseil"
+                >jpg, png : 4mo max</label
+              >
             </div>
 
             <div id="display-image"></div>
@@ -99,7 +111,8 @@
           </form>
         </div>
       </div>
-      <button type="button" class="publier">publier les changements</button>
+
+      <button type="button" id="publier">publier les changements</button>
     </nav>
 
     <header>

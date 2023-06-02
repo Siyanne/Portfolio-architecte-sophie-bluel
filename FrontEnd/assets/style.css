@@ -365,7 +365,10 @@ footer nav ul {
 .galleries-photos img {
   width: 100px;
 }
-
+.titleModal {
+  display: flex;
+  justify-content: center;
+}
 .galleries-photos {
   position: relative;
   display: flex;
@@ -373,9 +376,60 @@ footer nav ul {
   gap: 10px;
   width: 50%;
 }
-.trashBtn {
-  position: absolute;
-  margin-left: 74px;
+
+.btn-sup-aj {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 38px 0px;
+  border-top: 1px solid #b3b3b3;
+}
+#add-pic-modal,
+#remove-photo {
+  width: 237px;
+  height: 36px;
+}
+#add-pic-modal {
+  color: white;
+  background-color: #1d6154;
+  border: 1px solid #1d6154;
+  border-radius: 50px;
+}
+#remove-photo {
+  background-color: white;
+  border: 1px solid white;
+  color: #d65353;
+}
+.modalMenu {
+  background-color: black;
+  display: flex;
+  height: 30px;
+  justify-content: center;
+  gap: 10px;
+  border: none;
+}
+#edition-modal,
+#publier {
+  border-radius: 50px;
+  padding: 0px 20px;
+  color: white;
+  background-color: black;
+  border: 1px solid black;
+}
+#edition-modal:hover,
+#publier:hover {
+  color: black;
+  background-color: white;
+}
+.modal-projet {
+  position: relative;
+}
+.projets-modal {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding: 30px;
 }
 .modal {
   background: #0007;
@@ -390,20 +444,16 @@ footer nav ul {
 }
 .modal__page {
   background: white;
-  padding: 10px;
+  padding: 65px;
   border: 1px solid black;
 }
+
 .modal-previous-x {
   display: flex;
   width: 100%;
   justify-content: space-between;
 }
-/*.hide {
-  display: none;
-}*/
-#modal2 {
-  display: none;
-}
+
 .ajout-project-modal {
   display: flex;
   justify-content: center;
@@ -413,33 +463,66 @@ footer nav ul {
   flex-direction: column;
 }
 .delete-project-modal {
-  height: 500px;
+  height: 730px;
+  width: 630px;
 }
 .fermer {
   display: flex;
   flex-basis: 100%;
   justify-content: right;
+  background-color: white;
+  border: 1px solid white;
+}
+.trashBtn {
+  display: none;
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  background-color: black;
+  color: white;
+  width: 17px;
+  height: 17px;
+}
+
+.trashCon {
+  font-size: 9px;
+  position: absolute;
+  right: 3px;
+  top: 3px;
 }
 #display-image {
   width: 100%;
   height: 211px;
-  border: 1px xolid black;
+  margin-bottom: 30px;
+
   background-position: center;
   background-size: cover;
   background-color: #e8f1f6;
 }
+
 .display-column {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
-
+.img-projet {
+  width: 79px;
+  height: 105px;
+}
+.projets-modal {
+  display: flex;
+  flex-wrap: wrap;
+}
 .validerUpload {
   display: flex;
   justify-content: center;
-  margin: 20px;
+  padding: 40px;
+  border-top: 1px solid #b3b3b3;
+  margin-top: 47px;
 }
-
+.titrePhoto {
+  margin-bottom: 20px;
+}
 .titrePhoto,
 #workCategories {
   width: 420px;
@@ -448,21 +531,27 @@ footer nav ul {
 #image-input {
   display: none;
 }
+#modal-close-x1,
+#modal-close-x2,
+#previous-page {
+  background-color: white;
+  border: 1px solid white;
+}
 .addSymbole {
   font-size: 10px;
   padding-right: 5px;
 }
 .picture {
-  position: absolute;
-  left: 730px;
-  top: 110px;
+  position: relative;
+  left: 170px;
+  top: 100px;
   font-size: 5em;
   color: #b9c5cc;
 }
 .disappear {
-  position: absolute;
-  left: 690px;
-  top: 190px;
+  position: relative;
+  left: 55px;
+  top: 145px;
   color: #306685;
   background-color: #cbd6dc;
   padding: 8px 25px;
@@ -470,9 +559,9 @@ footer nav ul {
   border-radius: 50px;
 }
 .conseil {
-  position: absolute;
-  left: 715px;
-  top: 230px;
+  position: relative;
+  right: 75px;
+  top: 170px;
   font-size: 10px;
   color: #444444;
 }
@@ -486,4 +575,16 @@ footer nav ul {
   padding: 8px 60px;
   border-radius: 60px;
   border: none;
+}
+
+.drop-zone-over {
+  border-style: solid;
+}
+.drop-zone-input {
+  position: relative;
+  top: 130px;
+  background-color: #1d6154;
+}
+.hide {
+  display: none;
 }

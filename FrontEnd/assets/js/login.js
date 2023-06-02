@@ -1,11 +1,7 @@
 import { fetchLogin } from "./api.js";
 import { setToken } from "./auth.js";
+import { postNewWork } from "./api.js";
 
-console.log("helllo");
-
-//import { createAppend } from "./main.js";
-const emailInput = document.querySelector(".email");
-const pswInput = document.querySelector(".password");
 const msgError = document.querySelector(".errorMsg");
 const loginForm = document.querySelector(".loginForm");
 loginForm.addEventListener("submit", loginInfo);
@@ -30,6 +26,7 @@ function loginError() {
   const errorElm = document.createElement("p");
   errorElm.classList.add("msgErreur");
   errorElm.innerText = "Erreur dans l’identifiant ou le mot de passe";
+
   msgError.appendChild(errorElm);
 }
 export { redirectToHome };
