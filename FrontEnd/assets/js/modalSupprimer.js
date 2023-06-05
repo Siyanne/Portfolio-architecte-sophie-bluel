@@ -1,6 +1,5 @@
 import { fetchDeleteWorks } from "./api.js";
 import { works } from "./works.js";
-import { close_modal } from "./app.js";
 const projetsDiv = document.querySelector(".projets-modal");
 
 function generateModalWork(work) {
@@ -10,7 +9,6 @@ function generateModalWork(work) {
     .content.cloneNode(true);
   clone.querySelector(".titreProjet").innerText = "editer";
   clone.querySelector(".img-projet").src = work.imageUrl;
-
   const removePhotoBtn = document.querySelector("#remove-photo");
   removePhotoBtn.addEventListener("click", function () {
     cloneTrashBtn.style.display = "flex";
@@ -24,14 +22,7 @@ function generateModalWork(work) {
     projet.remove();
   });
 
-  if (close_modal) {
-    cloneTrashBtn.style.display = "none";
-  }
-
-  //generateWorks(work);
-
   projetsDiv.appendChild(clone);
-  //console.log(work);
 }
 function generateModalWorks(works) {
   for (let work of works) generateModalWork(work);

@@ -426,9 +426,11 @@ footer nav ul {
   position: relative;
 }
 .projets-modal {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
   padding: 30px;
 }
 .modal {
@@ -459,12 +461,12 @@ footer nav ul {
   justify-content: center;
   align-items: center;
   gap: 10px;
-  height: 670px;
+  height: 690px;
   flex-direction: column;
 }
 .delete-project-modal {
   height: 730px;
-  width: 630px;
+  width: 690px;
 }
 .fermer {
   display: flex;
@@ -476,8 +478,8 @@ footer nav ul {
 .trashBtn {
   display: none;
   position: absolute;
-  right: 5px;
-  top: 5px;
+  right: 16px;
+  top: 3px;
   background-color: black;
   color: white;
   width: 17px;
@@ -509,10 +511,7 @@ footer nav ul {
   width: 79px;
   height: 105px;
 }
-.projets-modal {
-  display: flex;
-  flex-wrap: wrap;
-}
+
 .validerUpload {
   display: flex;
   justify-content: center;
@@ -541,6 +540,11 @@ footer nav ul {
   font-size: 10px;
   padding-right: 5px;
 }
+.picture,
+.conseil,
+.disappear {
+  cursor: pointer;
+}
 .picture {
   position: relative;
   left: 170px;
@@ -567,7 +571,6 @@ footer nav ul {
 }
 .titreAjoutPhoto {
   text-align: center;
-  padding: 20px;
 }
 #valider {
   color: white;
@@ -577,13 +580,8 @@ footer nav ul {
   border: none;
 }
 
-.drop-zone-over {
-  border-style: solid;
-}
-.drop-zone-input {
-  position: relative;
-  top: 130px;
-  background-color: #1d6154;
+.active {
+  border: 0.2em solid black;
 }
 .hide {
   display: none;

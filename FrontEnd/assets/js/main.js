@@ -25,7 +25,7 @@ function generateWorks(works) {
   for (let work of works) generateWork(work);
 }
 
-function generateWorksFiltrees(id) {
+export function generateWorksFiltrees(id) {
   const worksFiltrees = works.filter(function (work) {
     if (id == 0) {
       return true;

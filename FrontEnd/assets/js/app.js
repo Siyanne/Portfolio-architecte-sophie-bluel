@@ -1,3 +1,5 @@
+const trashBtn = document.querySelector(".trashBtn");
+
 function open_modal(modal, page) {
   // recuperer la modal et l'afficher
   document.querySelector(modal).classList.remove("hide");
@@ -11,7 +13,7 @@ function open_modal(modal, page) {
   sel_page.classList.remove("hide");
 }
 
-export function close_modal(modal) {
+function close_modal(modal) {
   // recuperer la modal et la cacher
   const modalElm = document.querySelector(modal);
   modalElm.classList.add("hide");
@@ -22,7 +24,7 @@ function button_modal(button, modal, page) {
     .querySelector(button)
     .addEventListener("click", () => open_modal(modal, page));
 }
-function button_close_modal(button, modal) {
+export function button_close_modal(button, modal) {
   document
     .querySelector(button)
     .addEventListener("click", () => close_modal(modal));
@@ -31,6 +33,7 @@ function button_close_modal(button, modal) {
     page.addEventListener("click", (ev) => ev.stopPropagation());
   }
 }
+button_modal(".modifier-galleries", "#modal1", ".delete-project-modal");
 button_modal("#edition-modal", "#modal1", ".delete-project-modal");
 button_modal("#add-pic-modal", "#modal1", ".ajout-project-modal");
 button_modal("#previous-page", "#modal1", ".delete-project-modal");

@@ -58,51 +58,47 @@
           </form>
         </div>
         <div class="ajout-project-modal modal__page hide">
-          <div class="modal-previous-x">
-            <button id="previous-page">
-              <i class="fa-solid fa-arrow-left-long"></i>
-            </button>
-            <div class="fermer">
-              <button id="modal-close-x2">
-                <i class="fa-solid fa-xmark fermerX"></i>
-              </button>
-            </div>
-          </div>
           <form method="dialog" id="saved-form">
+            <div class="modal-previous-x">
+              <button id="previous-page">
+                <i class="fa-solid fa-arrow-left-long"></i>
+              </button>
+              <div class="fermer">
+                <button id="modal-close-x2">
+                  <i class="fa-solid fa-xmark fermerX"></i>
+                </button>
+              </div>
+            </div>
             <div class="header">
               <label>
                 <h3 class="titreAjoutPhoto">Ajout Photo</h3>
               </label>
             </div>
-            <div class="input-div drop-zone">
-              <input
-                type="file"
-                name="myFile"
-                src="assets/js/modalSupprimer.js"
-                id="image-input"
-                class="drop-zone-input"
-                accept="image/png, image/jpg"
-              />
-              <label for="image-input">
-                <i class="fa-regular fa-image picture"></i
-              ></label>
 
-              <label for="image-input" class="disappear"
-                ><i for="image-input" class="fa-solid fa-plus addSymbole"></i
-                >Ajouter photo</label
-              >
-              <label for="image-input" class="conseil"
-                >jpg, png : 4mo max</label
-              >
-            </div>
+            <input type="file" id="image-input" multiple accept="image/*" />
+            <label for="image-input">
+              <i class="fa-regular fa-image picture"></i
+            ></label>
+
+            <label for="image-input" class="disappear"
+              ><i for="image-input" class="fa-solid fa-plus addSymbole"></i
+              >Ajouter photo</label
+            >
+            <label for="image-input" class="conseil">jpg, png : 4mo max</label>
 
             <div id="display-image"></div>
+            <div id="error"></div>
             <div class="display-column">
               <label>Titre</label>
               <input type="text" class="titrePhoto" />
               <label>Catégories</label>
               <select name="categoriesWork" id="workCategories">
-                #
+                <template id="categorieTemplate"
+                  ><option
+                    value="workCategorie"
+                    class="optionCategorie"
+                  ></option
+                ></template>
               </select>
             </div>
             <div class="validerUpload">
@@ -134,7 +130,7 @@
         <figure>
           <img src="./assets/images/sophie-bluel.png" alt="" />
           <a href="#" class="modifier modifier-profil hide-guest"
-            ><i class="fa-solid fa-pen-to-square modifier-text"></i>modifier</a
+            ><i class="fa-solid fa-pen-to-square modifier-img"></i>modifier</a
           >
         </figure>
 
@@ -163,9 +159,9 @@
       <section id="portfolio">
         <div class="projets-modifier">
           <h2>Mes Projets</h2>
-          <a href="#" class="modifier modifier-galleries hide-guest"
-            ><i class="fa-solid fa-pen-to-square modifier-img"></i>modifier</a
-          >
+          <button class="modifier modifier-galleries hide-guest">
+            <i class="fa-solid fa-pen-to-square modifier-projets"></i>modifier
+          </button>
         </div>
         <div class="filtres hide-admin"></div>
         <template id="buttonCategories">
