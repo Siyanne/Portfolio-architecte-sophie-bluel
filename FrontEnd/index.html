@@ -80,7 +80,13 @@
               </label>
             </div>
 
-            <input type="file" id="image-input" multiple accept="image/*" />
+            <input
+              type="file"
+              name="image"
+              id="image-input"
+              multiple
+              accept="image/*"
+            />
             <label for="image-input">
               <i class="fa-regular fa-image picture"></i
             ></label>
@@ -95,9 +101,9 @@
             <div id="error"></div>
             <div class="display-column">
               <label>Titre</label>
-              <input type="text" class="titrePhoto" />
+              <input type="text" name="title" class="titrePhoto" />
               <label>Catégories</label>
-              <select name="categoriesWork" id="workCategories">
+              <select name="category" id="workCategories">
                 <template id="categorieTemplate"
                   ><option
                     value="workCategorie"

@@ -13,7 +13,7 @@ function open_modal(modal, page) {
   sel_page.classList.remove("hide");
 }
 
-function close_modal(modal) {
+export function close_modal(modal) {
   // recuperer la modal et la cacher
   const modalElm = document.querySelector(modal);
   modalElm.classList.add("hide");

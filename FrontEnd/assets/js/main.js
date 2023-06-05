@@ -10,7 +10,7 @@ function createAppend(elm, tag) {
   return elm.appendChild(document.createElement(tag));
 }
 
-function generateWork(work) {
+export function generateWork(work) {
   const figureElm = createAppend(galleryElm, "figure");
 
   const imageElm = createAppend(figureElm, "img");

@@ -1,6 +1,5 @@
 import { fetchLogin } from "./api.js";
 import { setToken } from "./auth.js";
-import { postNewWork } from "./api.js";
 
 const msgError = document.querySelector(".errorMsg");
 const loginForm = document.querySelector(".loginForm");

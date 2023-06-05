@@ -2,7 +2,7 @@ import { fetchDeleteWorks } from "./api.js";
 import { works } from "./works.js";
 const projetsDiv = document.querySelector(".projets-modal");
 
-function generateModalWork(work) {
+export function generateModalWork(work) {
   console.log("generateModalWork", work);
   const clone = document
     .querySelector("#galleries-modal")

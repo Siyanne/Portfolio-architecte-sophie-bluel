@@ -1,6 +1,9 @@
 import { works } from "./works.js";
 import { fetchCategories } from "./api.js";
 import { postNewWork } from "./api.js";
+import { generateWork } from "./main.js";
+import { generateModalWork } from "./modalSupprimer.js";
+import { button_close_modal, close_modal } from "./app.js";
 
 const imageDisplay = document.querySelector("#display-image");
 const img_input = document.querySelector(`#image-input`);
@@ -14,12 +17,13 @@ function selectCategorie(categorie) {
     .querySelector("#categorieTemplate")
     .content.cloneNode(true);
   clone.querySelector(".optionCategorie").innerText = categorie.name;
+  clone.querySelector(".optionCategorie").value = categorie.id;
   document.querySelector("#workCategories").appendChild(clone);
 
   console.log(categorie);
 }
 function selectCategories(categories) {
-  selectCategorie({ id: 0, name: "" });
+  selectCategorie({ id: "", name: "" });
   for (let categorie of categories) selectCategorie(categorie);
 }
 
@@ -111,10 +115,14 @@ addForm.addEventListener("submit", postWorks);
 
 async function postWorks(ev) {
   ev.preventDefault();
-  const body = Object.fromEntries(new FormData(ev.target));
+  const body = new FormData(ev.target);
+  if (body.get("category") === "") return;
+  console.log(ev.target);
   const result = await postNewWork(body);
   console.log(result);
-  //const work = await result.json();
+  generateWork(result);
+  generateModalWork(result);
+  close_modal("#modal1");
 }
 
 selectCategories(categories);
