@@ -1,5 +1,4 @@
 import { works } from "./works.js";
-import { generateWorksFiltrees } from "./main.js";
 import { fetchCategories } from "./api.js";
 import { postNewWork } from "./api.js";
 
@@ -7,20 +6,20 @@ const imageDisplay = document.querySelector("#display-image");
 const img_input = document.querySelector(`#image-input`);
 const projetsDiv = document.querySelector(".projets-modal");
 const categories = await fetchCategories();
-//const newWork = await postNewWork(result);
+const newWork = await postNewWork();
+console.log(newWork);
 
 function selectCategorie(categorie) {
   const clone = document
     .querySelector("#categorieTemplate")
     .content.cloneNode(true);
   clone.querySelector(".optionCategorie").innerText = categorie.name;
-  clone
-    .querySelector(".optionCategorie")
-    .addEventListener("click", () => generateWorksFiltrees(categorie.id));
   document.querySelector("#workCategories").appendChild(clone);
+
   console.log(categorie);
 }
 function selectCategories(categories) {
+  selectCategorie({ id: 0, name: "" });
   for (let categorie of categories) selectCategorie(categorie);
 }
 
@@ -99,10 +98,23 @@ function updateThumbnail(imageDisplay, file) {
     imageDisplay.style.backgroundImage = null;
   }
 }
-async function postWorkTitlte(ev) {
+/*
+const formElm = document.querySelector("form");
+const formData = new formData = new FormData(formElm);
+const request = new XMLHttpRequest();
+request.open("POST", " modalAjouter.js");
+formData.append("serialnumber", serialNumber++);
+request.send(formData);*/
+const addForm = document.querySelector("#saved-form");
+
+addForm.addEventListener("submit", postWorks);
+
+async function postWorks(ev) {
   ev.preventDefault();
   const body = Object.fromEntries(new FormData(ev.target));
   const result = await postNewWork(body);
-  const work = await result.json();
+  console.log(result);
+  //const work = await result.json();
 }
+
 selectCategories(categories);

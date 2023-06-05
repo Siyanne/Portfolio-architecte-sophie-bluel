@@ -1,4 +1,4 @@
-import { fetchCategories, fetchWorks, fetchDeleteWorks } from "./api.js";
+import { fetchCategories } from "./api.js";
 import { check, setToken } from "./auth.js";
 import { works } from "./works.js";
 const categories = await fetchCategories();
@@ -25,7 +25,7 @@ function generateWorks(works) {
   for (let work of works) generateWork(work);
 }
 
-export function generateWorksFiltrees(id) {
+function generateWorksFiltrees(id) {
   const worksFiltrees = works.filter(function (work) {
     if (id == 0) {
       return true;
@@ -75,5 +75,4 @@ document.querySelector(".logout--link").addEventListener("click", function () {
 
 generateWorks(works);
 generateFilterButtons(categories);
-//generateModal(works);
 export { createAppend };
