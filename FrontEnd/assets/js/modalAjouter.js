@@ -1,34 +1,33 @@
-import { works } from "./works.js";
 import { fetchCategories } from "./api.js";
 import { postNewWork } from "./api.js";
-import { generateWork } from "./main.js";
+import { createAppend, generateWork } from "./main.js";
 import { generateModalWork } from "./modalSupprimer.js";
-import { button_close_modal, close_modal } from "./app.js";
+import { close_modal } from "./app.js";
 
 const imageDisplay = document.querySelector("#display-image");
 const img_input = document.querySelector(`#image-input`);
-const projetsDiv = document.querySelector(".projets-modal");
-const categories = await fetchCategories();
-const newWork = await postNewWork();
-console.log(newWork);
+const addForm = document.querySelector("#saved-form");
+const error = document.querySelector("#error");
 
+const categories = await fetchCategories();
+
+let uploaded_img = ``;
+/**fonction permettant de selectionner une catégorie*/
 function selectCategorie(categorie) {
   const clone = document
     .querySelector("#categorieTemplate")
     .content.cloneNode(true);
-  clone.querySelector(".optionCategorie").innerText = categorie.name;
-  clone.querySelector(".optionCategorie").value = categorie.id;
+  const options = clone.querySelector(".optionCategorie");
+  options.innerText = categorie.name;
+  options.value = categorie.id;
   document.querySelector("#workCategories").appendChild(clone);
-
-  console.log(categorie);
 }
 function selectCategories(categories) {
   selectCategorie({ id: "", name: "" });
   for (let categorie of categories) selectCategorie(categorie);
 }
 
-let uploaded_img = ``;
-
+/**code permettant le téléchargementd'un fichier*/
 img_input.addEventListener(`change`, function () {
   const reader = new FileReader();
 
@@ -46,40 +45,43 @@ img_input.addEventListener(`change`, function () {
   reader.readAsDataURL(this.files[0]);
 });
 
+/**code permettant le drag&drop*/
+function activeOn(e) {
+  e.preventDefault();
+  e.stopPropagation();
+  imageDisplay.classList.add("active");
+}
+function activeOff(e) {
+  e.preventDefault();
+  e.stopPropagation();
+  imageDisplay.classList.remove("active");
+}
+
 imageDisplay.addEventListener(
   "dragenter",
   (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    imageDisplay.classList.add("active");
+    activeOn(e);
   },
   false
 );
 imageDisplay.addEventListener(
   "dragleave",
   (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    imageDisplay.classList.remove("active");
+    activeOff(e);
   },
   false
 );
 imageDisplay.addEventListener(
   "dragover",
   (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    imageDisplay.classList.add("active");
+    activeOn(e);
   },
   false
 );
 imageDisplay.addEventListener(
   "drop",
   (e) => {
-    console.log(e);
-    e.preventDefault();
-    e.stopPropagation();
-    imageDisplay.classList.remove("active");
+    activeOff(e);
     if (e.dataTransfer.files.length) {
       img_input.files = e.dataTransfer.files;
       updateThumbnail(imageDisplay, e.dataTransfer.files[0]);
@@ -102,14 +104,8 @@ function updateThumbnail(imageDisplay, file) {
     imageDisplay.style.backgroundImage = null;
   }
 }
-/*
-const formElm = document.querySelector("form");
-const formData = new formData = new FormData(formElm);
-const request = new XMLHttpRequest();
-request.open("POST", " modalAjouter.js");
-formData.append("serialnumber", serialNumber++);
-request.send(formData);*/
-const addForm = document.querySelector("#saved-form");
+/**fin drap&drop*/
+/** Ajout des fichiers dans l'api, modal supprimer et sur l'affichage*/
 
 addForm.addEventListener("submit", postWorks);
 

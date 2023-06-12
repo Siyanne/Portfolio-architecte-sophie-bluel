@@ -31,91 +31,99 @@
               <i class="fa-solid fa-xmark fermerX"></i>
             </button>
           </div>
-          <form method="dialog" class="formDelete">
-            <!-- ajout du for attribut -->
-            <label for="galleries-modal" class="titleModal"
-              >Galerie photo</label
-            >
-            <div class="projets-modal"></div>
-            <template id="galleries-modal">
-              <figure class="modal-projet">
-                <button class="trashBtn" type="submit">
-                  <i class="fa-solid fa-trash trashCon"></i>
-                </button>
-                <img class="img-projet" src="#" />
-                <figcaption class="titreProjet">éditer</figcaption>
-              </figure>
-            </template>
-            <div class="btn-sup-aj">
-              <button type="button" id="add-pic-modal">
-                Ajouter une photo
-              </button>
+          <section id="modalSup">
+            <form method="dialog" class="formDelete">
+              <h3 for="galleries-modal" class="titleModal">Galerie photo</h3>
+              <div class="projets-modal"></div>
+              <!-- template pour le clonage des projets dans la modal supprimer-->
+              <template id="galleries-modal">
+                <figure class="modal-projet">
+                  <button class="trashBtn" type="submit">
+                    <i class="fa-solid fa-trash trashCon"></i>
+                  </button>
+                  <img class="img-projet" src="#" />
+                  <figcaption class="titreProjet">éditer</figcaption>
+                </figure>
+              </template>
+              <div class="btn-sup-aj">
+                <input
+                  type="button"
+                  id="add-pic-modal"
+                  value="Ajouter une photo"
+                />
 
-              <button type="submit" id="remove-photo">
-                Supprimer une photo
-              </button>
-            </div>
-          </form>
-        </div>
-        <div class="ajout-project-modal modal__page hide">
-          <form
-            enctype="multipart/form-data"
-            method="post"
-            action="#"
-            id="saved-form"
-          >
-            <div class="modal-previous-x">
-              <button id="previous-page">
-                <i class="fa-solid fa-arrow-left-long"></i>
-              </button>
-              <div class="fermer">
-                <button id="modal-close-x2">
-                  <i class="fa-solid fa-xmark fermerX"></i>
-                </button>
+                <input
+                  type="submit"
+                  value="Supprimer la galerie"
+                  id="remove-photo"
+                />
               </div>
-            </div>
-            <div class="header">
-              <label>
-                <h3 class="titreAjoutPhoto">Ajout Photo</h3>
-              </label>
-            </div>
+            </form>
+          </section>
+        </div>
 
-            <input
-              type="file"
-              name="image"
-              id="image-input"
-              multiple
-              accept="image/*"
-            />
-            <label for="image-input">
-              <i class="fa-regular fa-image picture"></i
-            ></label>
-
-            <label for="image-input" class="disappear"
-              ><i for="image-input" class="fa-solid fa-plus addSymbole"></i
-              >Ajouter photo</label
+        <div class="ajout-project-modal modal__page hide">
+          <div class="modal-previous-x">
+            <button id="previous-page">
+              <i class="fa-solid fa-arrow-left-long"></i>
+            </button>
+            <div class="fermer">
+              <button id="modal-close-x2">
+                <i class="fa-solid fa-xmark fermerX"></i>
+              </button>
+            </div>
+          </div>
+          <section id="modalAjout">
+            <form
+              enctype="multipart/form-data"
+              method="post"
+              action="#"
+              id="saved-form"
             >
-            <label for="image-input" class="conseil">jpg, png : 4mo max</label>
+              <div class="header">
+                <h3 class="titreAjoutPhoto">Ajout Photo</h3>
+              </div>
 
-            <div id="display-image"></div>
-            <div id="error"></div>
-            <div class="display-column">
-              <label>Titre</label>
-              <input type="text" name="title" class="titrePhoto" />
-              <label>Catégories</label>
-              <select name="category" id="workCategories">
-                <template id="categorieTemplate"
-                  ><option
-                    value="workCategorie"
-                    class="optionCategorie"
-                  ></option
-                ></template>
-              </select>
-            </div>
-            <div class="validerUpload">
-              <button type="submit" id="valider">Valider</button>
-            </div>
-          </form>
+              <input
+                type="file"
+                name="image"
+                id="image-input"
+                multiple
+                accept="image/*"
+              />
+              <label for="image-input">
+                <i class="fa-regular fa-image forOppacity picture"></i
+              ></label>
+
+              <label for="image-input" class="forOppacity disappear"
+                ><i for="image-input" class="fa-solid fa-plus addSymbole"></i
+                >Ajouter photo</label
+              >
+              <label for="image-input" class="forOppacity conseil"
+                >jpg, png : 4mo max</label
+              >
+
+              <div id="display-image"></div>
+              <div id="error"></div>
+              <div class="display-column">
+                <label>Titre</label>
+                <input type="text" name="title" class="titrePhoto" />
+                <label>Catégories</label>
+                <select name="category" id="workCategories">
+                  <!-- template pour le clonage des options categories-->
+                  <template id="categorieTemplate"
+                    ><option
+                      value="workCategorie"
+                      class="optionCategorie"
+                    ></option
+                  ></template>
+                </select>
+              </div>
+              <div class="validerUpload">
+                <input type="submit" id="valider" value="Valider" />
+              </div>
+            </form>
+          </section>
         </div>
       </div>
 
@@ -140,15 +148,15 @@
       <section id="introduction">
         <figure>
           <img src="./assets/images/sophie-bluel.png" alt="" />
-          <a href="#" class="modifier modifier-profil hide-guest"
-            ><i class="fa-solid fa-pen-to-square modifier-img"></i>modifier</a
-          >
+          <button class="modifier modifier-profil hide-guest">
+            <i class="fa-solid fa-pen-to-square modifier-img"></i>modifier
+          </button>
         </figure>
 
         <article>
-          <a href="#" class="modifier modifier-text hide-guest"
-            ><i class="fa-solid fa-pen-to-square modifier-text"></i>modifier</a
-          >
+          <button class="modifier modifier-text hide-guest">
+            <i class="fa-solid fa-pen-to-square modifier-text"></i>modifier
+          </button>
           <h2>Designer d'espace</h2>
           <p>
             Je raconte votre histoire, je valorise vos idées. Je vous accompagne
@@ -175,6 +183,7 @@
           </button>
         </div>
         <div class="filtres hide-admin"></div>
+        <!-- template pour le clonage des boutons par catégorie-->
         <template id="buttonCategories">
           <button class="btnFiltre">#</button>
         </template>

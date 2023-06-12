@@ -1,29 +1,23 @@
 import { fetchDeleteWorks } from "./api.js";
 import { works } from "./works.js";
-const projetsDiv = document.querySelector(".projets-modal");
-
+/** elle permet d'afficher un seul projet dans la modal qui sert à supprimer   */
 export function generateModalWork(work) {
-  console.log("generateModalWork", work);
   const clone = document
     .querySelector("#galleries-modal")
     .content.cloneNode(true);
   clone.querySelector(".titreProjet").innerText = "editer";
   clone.querySelector(".img-projet").src = work.imageUrl;
-  const removePhotoBtn = document.querySelector("#remove-photo");
-  removePhotoBtn.addEventListener("click", function () {
-    cloneTrashBtn.style.display = "flex";
-  });
 
   const projet = clone.querySelector(".modal-projet");
-  const cloneTrashBtn = clone.querySelector(".trashBtn");
-  cloneTrashBtn.addEventListener("click", async () => {
+  clone.querySelector(".trashBtn").addEventListener("click", async () => {
     await fetchDeleteWorks(work.id);
 
     projet.remove();
   });
-
+  const projetsDiv = document.querySelector(".projets-modal");
   projetsDiv.appendChild(clone);
 }
+/** elle permet d'afficher tous les projets dans la modal qui sert à supprimer */
 function generateModalWorks(works) {
   for (let work of works) generateModalWork(work);
 }

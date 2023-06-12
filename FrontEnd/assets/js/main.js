@@ -5,11 +5,12 @@ const categories = await fetchCategories();
 
 const galleryElm = document.querySelector(".gallery");
 const btnFiltres = document.querySelector(".filtres");
-
+/** elle permet de creer un element et le append à l'element parent pour l'affichage */
 function createAppend(elm, tag) {
   return elm.appendChild(document.createElement(tag));
 }
 
+/** elle permet d'afficher un work/un projet recupéré dans l'api */
 export function generateWork(work) {
   const figureElm = createAppend(galleryElm, "figure");
 
@@ -19,12 +20,12 @@ export function generateWork(work) {
   const figcaptionElm = createAppend(figureElm, "figcaption");
   figcaptionElm.innerText = work.title;
 }
-
+/**  elle permet d'afficher tout les works/projets recupérés dans l'api*/
 function generateWorks(works) {
   galleryElm.innerHTML = "";
   for (let work of works) generateWork(work);
 }
-
+/** elle permet de générer des projets par leur catégorie selon leur id avec affichage grace au generateWorks*/
 function generateWorksFiltrees(id) {
   const worksFiltrees = works.filter(function (work) {
     if (id == 0) {
@@ -34,12 +35,7 @@ function generateWorksFiltrees(id) {
   });
   generateWorks(worksFiltrees);
 }
-
-function generateFilterButtons(categories) {
-  generateFilterButton({ id: 0, name: "Tous" });
-  for (let categorie of categories) generateFilterButton(categorie);
-}
-
+/** elle permet de générer un seul bouton selon la catégorie, elle permet de cloner tous les éléments qui se trouve le template coder en  html  */
 function generateFilterButton(categorie) {
   const clone = document
     .querySelector("#buttonCategories")
@@ -51,6 +47,12 @@ function generateFilterButton(categorie) {
   btnFiltres.appendChild(clone);
   console.log(categorie);
 }
+/** elle permet de générer tous les boutons des catégories existant dans l'api */
+function generateFilterButtons(categories) {
+  generateFilterButton({ id: 0, name: "Tous" });
+  for (let categorie of categories) generateFilterButton(categorie);
+}
+/** le check permet de verifier le token, et de se connecter en tant que administrateur et avoir accès a des privlèges(créer supprmier etc) */
 const logged = check();
 console.log(logged);
 if (logged) {

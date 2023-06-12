@@ -1,5 +1,3 @@
-const trashBtn = document.querySelector(".trashBtn");
-
 function open_modal(modal, page) {
   // recuperer la modal et l'afficher
   document.querySelector(modal).classList.remove("hide");
