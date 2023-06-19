@@ -13,6 +13,7 @@ export function generateModalWork(work) {
     await fetchDeleteWorks(work.id);
 
     projet.remove();
+    document.querySelector(`.gallery figure[data-id="${work.id}"]`).remove();
   });
   const projetsDiv = document.querySelector(".projets-modal");
   projetsDiv.appendChild(clone);

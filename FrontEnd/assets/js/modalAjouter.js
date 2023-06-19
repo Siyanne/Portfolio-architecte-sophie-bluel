@@ -7,6 +7,7 @@ import { close_modal } from "./app.js";
 const imageDisplay = document.querySelector("#display-image");
 const img_input = document.querySelector(`#image-input`);
 const addForm = document.querySelector("#saved-form");
+const disappear = document.querySelector(".disappear");
 const error = document.querySelector("#error");
 
 const categories = await fetchCategories();
@@ -36,9 +37,7 @@ img_input.addEventListener(`change`, function () {
     imageDisplay.style.backgroundImage = `url(${uploaded_img})`;
 
     if (img_input.value) {
-      document.querySelector(`.disappear`).style.opacity = `0`;
-      document.querySelector(`.picture`).style.opacity = `0`;
-      document.querySelector(`.conseil`).style.opacity = `0`;
+      disappear.style.opacity = `0`;
     }
   });
 
@@ -96,9 +95,7 @@ function updateThumbnail(imageDisplay, file) {
     reader.readAsDataURL(file);
     reader.onload = () => {
       imageDisplay.style.backgroundImage = `url('${reader.result}')`;
-      document.querySelector(`.disappear`).style.opacity = `0`;
-      document.querySelector(`.picture`).style.opacity = `0`;
-      document.querySelector(`.conseil`).style.opacity = `0`;
+      disappear.style.opacity = `0`;
     };
   } else {
     imageDisplay.style.backgroundImage = null;

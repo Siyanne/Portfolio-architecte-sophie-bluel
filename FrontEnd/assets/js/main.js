@@ -13,7 +13,7 @@ function createAppend(elm, tag) {
 /** elle permet d'afficher un work/un projet recupéré dans l'api */
 export function generateWork(work) {
   const figureElm = createAppend(galleryElm, "figure");
-
+  figureElm.dataset.id = work.id;
   const imageElm = createAppend(figureElm, "img");
   imageElm.src = work.imageUrl;
 

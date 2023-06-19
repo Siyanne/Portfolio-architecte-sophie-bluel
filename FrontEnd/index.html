@@ -31,7 +31,7 @@
               <i class="fa-solid fa-xmark fermerX"></i>
             </button>
           </div>
-          <section id="modalSup">
+          
             <form method="dialog" class="formDelete">
               <h3 for="galleries-modal" class="titleModal">Galerie photo</h3>
               <div class="projets-modal"></div>
@@ -59,7 +59,7 @@
                 />
               </div>
             </form>
-          </section>
+          
         </div>
 
         <div class="ajout-project-modal modal__page hide">
@@ -91,22 +91,20 @@
                 multiple
                 accept="image/*"
               />
-              <label for="image-input">
-                <i class="fa-regular fa-image forOppacity picture"></i
-              ></label>
+              <label for="image-input" class="telechargement" id="display-image"
+                ><br />
+                <div class="disappear">
+                <p class="picture disappear"><i class="fa-regular fa-image "></i></p>
+                <p class="disappear">
+                  <i class="fa-solid fa-plus"></i> Ajouter photo
+                </p>
+                <p class="disappear">jpg, png : 4mo max</p>
+                </div>
+              </label>
 
-              <label for="image-input" class="forOppacity disappear"
-                ><i for="image-input" class="fa-solid fa-plus addSymbole"></i
-                >Ajouter photo</label
-              >
-              <label for="image-input" class="forOppacity conseil"
-                >jpg, png : 4mo max</label
-              >
-
-              <div id="display-image"></div>
               <div id="error"></div>
               <div class="display-column">
-                <label>Titre</label>
+                <label class="titreLabel">Titre</label>
                 <input type="text" name="title" class="titrePhoto" />
                 <label>Catégories</label>
                 <select name="category" id="workCategories">
@@ -123,7 +121,7 @@
                 <input type="submit" id="valider" value="Valider" />
               </div>
             </form>
-          </section>
+          
         </div>
       </div>
 
