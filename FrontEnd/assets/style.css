@@ -141,9 +141,6 @@ header {
   justify-content: space-between;
   margin: 50px 0;
 }
-section {
-  margin: 50px 0;
-}
 
 h1 {
   display: flex;
@@ -402,7 +399,8 @@ footer nav ul {
   border-radius: 50px;
   margin-top: 38px;
 }
-#remove-photo {
+#remove-photo,
+#error {
   background-color: white;
   box-shadow: none;
   color: #d65353;
@@ -529,6 +527,7 @@ footer nav ul {
 .img-projet {
   width: 75px;
   height: 105px;
+  object-fit: cover;
 }
 .ajout-project-modal,
 .delete-project-modal {
@@ -536,7 +535,6 @@ footer nav ul {
   padding: 26px 30px;
   border-radius: 10px;
   width: 604px;
-  height: 640px;
 }
 .ajout-project-modal h3,
 .delete-project-modal h3 {

@@ -9,6 +9,7 @@ const img_input = document.querySelector(`#image-input`);
 const addForm = document.querySelector("#saved-form");
 const disappear = document.querySelector(".disappear");
 const error = document.querySelector("#error");
+const validerBtn = document.querySelector("#valider");
 
 const categories = await fetchCategories();
 
@@ -106,16 +107,53 @@ function updateThumbnail(imageDisplay, file) {
 
 addForm.addEventListener("submit", postWorks);
 
+let errorMsgShown = false;
+
 async function postWorks(ev) {
   ev.preventDefault();
   const body = new FormData(ev.target);
   if (body.get("category") === "") return;
   console.log(ev.target);
   const result = await postNewWork(body);
+  if (!result.id) {
+    if (!errorMsgShown) {
+      const msgError = createAppend(error, "p");
+
+      msgError.classList.add("msgErrorP");
+      msgError.innerHTML = "";
+      msgError.innerText = "Erreur, impossible d'ajouter le projet";
+
+      errorMsgShown = true;
+    }
+
+    const inputFields = document.querySelectorAll("input");
+    inputFields.forEach((input) => {
+      input.addEventListener("click", checkInputs);
+    });
+    function checkInputs() {
+      if (
+        body.get("category") !== "" &&
+        body.get("title") !== "" &&
+        body.get("image") !== ""
+      ) {
+        // remove error message
+
+        if (msgError) {
+          msgError.parentNode.removeChild(msgError);
+          errorMsgShown = false;
+        }
+        validerBtn.style.background = "#1d6154";
+      }
+    }
+    return;
+  }
+
   console.log(result);
   generateWork(result);
   generateModalWork(result);
   close_modal("#modal1");
 }
+
+// function to check if all required fields are filled
 
 selectCategories(categories);

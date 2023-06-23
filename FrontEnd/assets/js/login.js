@@ -21,11 +21,15 @@ function redirectToHome() {
   document.location.replace("index.html");
 }
 /** message d'erreur si mauvais mot de passe ou email */
+let errorMsgShown = false;
 function loginError() {
-  const errorElm = document.createElement("p");
-  errorElm.classList.add("msgErreur");
-  errorElm.innerText = "Erreur dans l’identifiant ou le mot de passe";
+  if (!errorMsgShown) {
+    const errorElm = document.createElement("p");
+    errorElm.classList.add("msgErreur");
+    errorElm.innerText = "Erreur dans l’identifiant ou le mot de passe";
 
-  msgError.appendChild(errorElm);
+    msgError.appendChild(errorElm);
+    errorMsgShown = true;
+  }
 }
 export { redirectToHome };
