@@ -119,9 +119,9 @@ q {
   quotes: none;
 }
 blockquote:before,
-blockquote::active,
+blockquote:active,
 q:before,
-q::active {
+q:active {
   content: "";
   content: none;
 }
@@ -135,6 +135,9 @@ body {
   margin: auto;
   font-family: "Work Sans";
   font-size: 14px;
+}
+main {
+  padding: 30px 80px 30px 40px;
 }
 header {
   display: flex;
@@ -192,15 +195,23 @@ li:hover {
   margin-top: 16px;
   margin-left: 50px;
 }
+.editionFont {
+  padding-right: 5px;
+}
 .projets-modifier {
   display: flex;
   justify-content: center;
-  gap: 30px;
+  gap: 15px;
   margin-bottom: 1em;
 }
 .modifier {
   border: none;
   background-color: white;
+}
+.modifier-projets,
+.modifier-img,
+.modifier-text {
+  padding-right: 5px;
 }
 .modifier-font {
   font-weight: lighter;
@@ -228,12 +239,13 @@ li:hover {
   grid-template-columns: 1fr 1fr 1fr;
   grid-column-gap: 20px;
   grid-row-gap: 20px;
+  padding: 50px 0px 50px 50px;
 }
 
 .gallery img {
-  width: 270px;
-  height: 360px;
   object-fit: cover;
+  width: 100%;
+  height: 407px;
 }
 #contact,
 #login {
@@ -323,6 +335,7 @@ footer nav ul {
   justify-content: flex-end;
   margin: 2em;
 }
+/********LOGIN***********/
 .projets--link,
 .login--link {
   text-decoration: none;
@@ -342,6 +355,7 @@ footer nav ul {
 .isAdmin .hide-admin {
   display: none;
 }
+/***********************MODAL*********************/
 .editing {
   display: flex;
   justify-content: center;
@@ -360,7 +374,6 @@ footer nav ul {
 .editing a:hover {
   background-color: white;
   color: black;
-  padding: 10x;
   border-radius: 60px;
 }
 
@@ -395,7 +408,6 @@ footer nav ul {
 #add-pic-modal {
   color: white;
   background-color: #1d6154;
-  border: 1px solid #1d6154;
   border-radius: 50px;
   margin-top: 38px;
 }
@@ -431,26 +443,34 @@ footer nav ul {
   position: relative;
 }
 .projets-modal {
-  /* width: 100%; */
-  /* display: grid; */
-  /* grid-template-columns: 1fr 1fr 1fr 1fr 1fr; */
-  /* grid-column-gap: 10px; */
-  /* grid-row-gap: 10px; */
   width: 100%;
   max-width: 420px;
   display: flex;
   flex-wrap: wrap;
-
   align-items: center;
-  padding: 0 px 57px;
-  /* padding: 0px 37px; */
-  /* flex-grow: 1; */
   flex-basis: 100%;
   flex-grow: 1;
   gap: 10px;
   /* width: 80px; */
   padding-bottom: 67px;
   border-bottom: 1px solid #b3b3b3;
+}
+.ajout-photo-modal {
+  border: 1px solid #cbd6dc;
+  background-color: #cbd6dc;
+  border-radius: 50px;
+  padding: 7px 0px;
+  color: #306685;
+  margin-top: 10px;
+}
+.picture-size {
+  font-size: 10px;
+  color: #444444;
+  margin-top: 5px;
+}
+.disappear {
+  width: 45%;
+  margin-left: 116px;
 }
 .formDelete {
   display: flex;
@@ -492,8 +512,8 @@ footer nav ul {
 .trashCon {
   font-size: 9px;
   position: absolute;
-  right: 3px;
-  top: 3px;
+  right: 2px;
+  top: 2px;
 }
 /** modal ajout**/
 #image-input {
@@ -523,6 +543,7 @@ footer nav ul {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  border-bottom: 1px solid #b3b3b3;
 }
 .img-projet {
   width: 75px;

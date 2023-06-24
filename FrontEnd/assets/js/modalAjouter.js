@@ -126,28 +126,16 @@ async function postWorks(ev) {
       errorMsgShown = true;
     }
 
-    const inputFields = document.querySelectorAll("input");
-    inputFields.forEach((input) => {
-      input.addEventListener("click", checkInputs);
-    });
-    function checkInputs() {
-      if (
-        body.get("category") !== "" &&
-        body.get("title") !== "" &&
-        body.get("image") !== ""
-      ) {
-        // remove error message
-
-        if (msgError) {
-          msgError.parentNode.removeChild(msgError);
-          errorMsgShown = false;
-        }
-        validerBtn.style.background = "#1d6154";
-      }
-    }
     return;
   }
-
+  /*if (
+    body.get("category") !== "" &&
+    body.get("title") !== "" &&
+    body.get("image") !== ""
+  ) {
+    console.log("ok");
+    validerBtn.style.background = "#1d6154";
+  }*/
   console.log(result);
   generateWork(result);
   generateModalWork(result);
