@@ -142,6 +142,4 @@ async function postWorks(ev) {
   close_modal("#modal1");
 }
 
-// function to check if all required fields are filled
-
 selectCategories(categories);
