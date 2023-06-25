@@ -7,7 +7,9 @@ import { close_modal } from "./app.js";
 const imageDisplay = document.querySelector("#display-image");
 const img_input = document.querySelector(`#image-input`);
 const addForm = document.querySelector("#saved-form");
-const disappear = document.querySelector(".disappear");
+const picture = document.querySelector(".picture");
+const ajoutPicModal = document.querySelector(".ajout-photo-modal");
+const pictureSize = document.querySelector(".picture-size");
 const error = document.querySelector("#error");
 const validerBtn = document.querySelector("#valider");
 
@@ -38,7 +40,9 @@ img_input.addEventListener(`change`, function () {
     imageDisplay.style.backgroundImage = `url(${uploaded_img})`;
 
     if (img_input.value) {
-      disappear.style.opacity = `0`;
+      picture.style.opacity = `0`;
+      ajoutPicModal.style.opacity = `0`;
+      pictureSize.style.opacity = `0`;
     }
   });
 
@@ -96,7 +100,9 @@ function updateThumbnail(imageDisplay, file) {
     reader.readAsDataURL(file);
     reader.onload = () => {
       imageDisplay.style.backgroundImage = `url('${reader.result}')`;
-      disappear.style.opacity = `0`;
+      picture.style.opacity = `0`;
+      ajoutPicModal.style.opacity = `0`;
+      pictureSize.style.opacity = `0`;
     };
   } else {
     imageDisplay.style.backgroundImage = null;
@@ -128,14 +134,6 @@ async function postWorks(ev) {
 
     return;
   }
-  /*if (
-    body.get("category") !== "" &&
-    body.get("title") !== "" &&
-    body.get("image") !== ""
-  ) {
-    console.log("ok");
-    validerBtn.style.background = "#1d6154";
-  }*/
   console.log(result);
   generateWork(result);
   generateModalWork(result);

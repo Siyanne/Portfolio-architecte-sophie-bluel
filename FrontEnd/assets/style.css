@@ -464,16 +464,13 @@ footer nav ul {
   border-radius: 50px;
   padding: 7px 0px;
   color: #306685;
-  margin-top: 10px;
+  margin: 10px 0px 0px 120px;
+  width: 185px;
 }
 .picture-size {
   font-size: 10px;
   color: #444444;
   margin-top: 5px;
-}
-.disappear {
-  width: 45%;
-  margin-left: 116px;
 }
 .formDelete {
   display: flex;
@@ -501,35 +498,37 @@ footer nav ul {
   justify-content: right;
   background-color: white;
 }
-.trashBtn,
-.dAndD {
+.trashBtn {
   display: flex;
   position: absolute;
   background-color: black;
   color: white;
   width: 17px;
   height: 17px;
-}
-.trashBtn {
   right: 5px;
   top: 5px;
 }
-
-.trashCon,
-.dAndDCon {
+.trashCon {
   font-size: 9px;
   position: absolute;
-}
-.trashCon {
   right: 2px;
   top: 2px;
 }
+
 .dAndD {
-  left: 454px;
-  top: 207px;
+  display: flex;
+  position: relative;
+  background-color: black;
+  color: white;
+  width: 17px;
+  height: 17px;
+  bottom: 446px;
+  right: 171px;
 }
 .dAndDCon {
-  left: 1px;
+  font-size: 9px;
+  position: absolute;
+  left: 2px;
   bottom: 2px;
 }
 

@@ -23,7 +23,10 @@
   </head>
   <body>
     <nav class="modalMenu hide-guest">
-      <button type="button" id="edition-modal"><i class="fa-sharp fa-regular fa-pen-to-square editionFont"></i>Mode édition</button>
+      <button type="button" id="edition-modal">
+        <i class="fa-sharp fa-regular fa-pen-to-square editionFont"></i>Mode
+        édition
+      </button>
       <div class="modal hide" id="modal1">
         <div class="delete-project-modal modal__page hide">
           <div class="fermer">
@@ -31,36 +34,37 @@
               <i class="fa-solid fa-xmark fermerX"></i>
             </button>
           </div>
-          
-            <form method="dialog" class="formDelete">
-              <h3 for="galleries-modal" class="titleModal">Galerie photo</h3>
-              <div class="projets-modal"></div>
-              <button type="button" class="dAndD"><i class="fa-solid fa-up-down-left-right dAndDCon"></i></button>
-              <!-- template pour le clonage des projets dans la modal supprimer-->
-              <template id="galleries-modal">
-                <figure class="modal-projet">
-                  <button class="trashBtn" type="submit">
-                    <i class="fa-solid fa-trash trashCon"></i>
-                  </button>
-                  <img class="img-projet" src="#" />
-                  <figcaption class="titreProjet">éditer</figcaption>
-                </figure>
-              </template>
-              <div class="btn-sup-aj">
-                <input
-                  type="button"
-                  id="add-pic-modal"
-                  value="Ajouter une photo"
-                />
 
-                <input
-                  type="submit"
-                  value="Supprimer la galerie"
-                  id="remove-photo"
-                />
-              </div>
-            </form>
-          
+          <form method="dialog" class="formDelete">
+            <h3 class="titleModal">Galerie photo</h3>
+            <div class="projets-modal"></div>
+            <button type="button" class="dAndD">
+              <i class="fa-solid fa-up-down-left-right dAndDCon"></i>
+            </button>
+            <!-- template pour le clonage des projets dans la modal supprimer-->
+            <template id="galleries-modal">
+              <figure class="modal-projet">
+                <button class="trashBtn" type="submit">
+                  <i class="fa-solid fa-trash trashCon"></i>
+                </button>
+                <img class="img-projet" src="#" />
+                <figcaption class="titreProjet">éditer</figcaption>
+              </figure>
+            </template>
+            <div class="btn-sup-aj">
+              <input
+                type="button"
+                id="add-pic-modal"
+                value="Ajouter une photo"
+              />
+
+              <input
+                type="submit"
+                value="Supprimer la galerie"
+                id="remove-photo"
+              />
+            </div>
+          </form>
         </div>
 
         <div class="ajout-project-modal modal__page hide">
@@ -92,18 +96,20 @@
                 multiple
                 accept="image/*"
               />
-              <label for="image-input" class="telechargement" id="display-image"
-                ><br />
-                <div class="disappear">
-                <p class="picture"><i class="fa-regular fa-image "></i></p>
+              <label
+                for="image-input"
+                class="telechargement"
+                id="display-image"
+              >
+                <p class="picture">
+                  <i class="fa-regular fa-image"></i>
+                </p>
                 <p class="ajout-photo-modal">
                   <i class="fa-solid fa-plus"></i> Ajouter photo
                 </p>
                 <p class="picture-size">jpg, png : 4mo max</p>
-                </div>
               </label>
 
-              
               <div class="display-column">
                 <label class="titreLabel">Titre</label>
                 <input type="text" name="title" class="titrePhoto" />
@@ -111,11 +117,10 @@
                 <select name="category" id="workCategories">
                   <!-- template pour le clonage des options categories-->
                   <template id="categorieTemplate"
-                    ><option
-                      value="workCategorie"
-                      class="optionCategorie"
-                    ></option
-                  ></template>
+                    ><option value="workCategorie" class="optionCategorie">
+                      #
+                    </option></template
+                  >
                 </select>
               </div>
               <div id="error"></div>
@@ -123,7 +128,7 @@
                 <input type="submit" id="valider" value="Valider" />
               </div>
             </form>
-          
+          </section>
         </div>
       </div>
 
@@ -145,7 +150,7 @@
       </nav>
     </header>
     <main>
-      <section id="introduction">
+      <div id="introduction">
         <figure>
           <img src="./assets/images/sophie-bluel.png" alt="" />
           <button class="modifier modifier-profil hide-guest">
@@ -174,7 +179,7 @@
             : architecte DPLG, décorateur(trice)
           </p>
         </article>
-      </section>
+      </div>
       <section id="portfolio">
         <div class="projets-modifier">
           <h2>Mes Projets</h2>
