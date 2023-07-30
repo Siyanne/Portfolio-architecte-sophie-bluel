@@ -63,7 +63,7 @@ if (logged) {
   console.log("connecté en tant que guest");
 }
 document.querySelector(".logout--link").addEventListener("click", function () {
-  setToken();
+  setToken(); //supprime valeur de clé token
   if (setToken()) {
     document.querySelector("body").classList.remove("isAdmin");
     console.log("vous n'êtes plus connecté");

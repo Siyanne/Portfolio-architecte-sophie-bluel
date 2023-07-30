@@ -13,7 +13,7 @@ async function loginInfo(ev) {
   console.log(result.token);
 
   if (!result.token) return loginError();
-  setToken(result.token);
+  setToken(result.token); /** pour le récuperer dans check */
   redirectToHome();
 }
 /** link sur index.html, page d'accueil */
